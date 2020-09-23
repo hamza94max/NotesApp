@@ -1,4 +1,4 @@
-package com.example.hamza.noteappp;
+package com.example.hamza.noteappp.Dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Insert;
@@ -34,7 +34,8 @@ public interface Dao {
     @Query("SELECT * FROM note_data WHERE note_category LIKE :noteCategory ORDER BY note_created_at DESC")
     LiveData<List<Note>> getAllNotesWithCategory(String noteCategory);
 
-
+    @Query ("DELETE FROM note_data")
+    void deleteAllNotes();
 
 
 

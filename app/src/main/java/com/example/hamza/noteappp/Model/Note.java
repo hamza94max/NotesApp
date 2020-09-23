@@ -12,6 +12,11 @@ public class Note {
     @ColumnInfo(name = "note_id")
     private int id ;
 
+
+
+    @ColumnInfo(name = "note_title")
+    String title ;
+
     @ColumnInfo(name = "note_content")
     String content ;
 
@@ -24,13 +29,28 @@ public class Note {
     @ColumnInfo(name = "note_created_at")
     private long createdAt;
 
+    public Note() {
+    }
 
-    public Note(int id, String content, boolean noteChecked, String noteCategory, long createdAt) {
-        this.id = id;
+    public Note( String title, String content, boolean noteChecked, String noteCategory, long createdAt) {
+        this.title=title;
         this.content = content;
         this.noteChecked = noteChecked;
         this.noteCategory = noteCategory;
         this.createdAt = createdAt; }
+
+    public Note(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public int getId() {
         return id;
