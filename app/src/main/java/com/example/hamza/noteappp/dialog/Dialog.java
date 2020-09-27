@@ -13,9 +13,15 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
+import com.example.hamza.noteappp.viewmodel.ViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Dialog extends AppCompatDialogFragment {
 
+    private List <Note> noteList;
+    private ViewModel noteViewModel;
 
     @Override
     public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -31,11 +37,9 @@ public class Dialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        Note note =new Note();
-                        note.setContent(content.getText().toString());
-                        note.setTitle(title.getText().toString());
 
-
+                        Note note = new Note(title.getText().toString(), content.getText().toString());
+                        noteViewModel.insert(note);
 
                     }
                 });

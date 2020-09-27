@@ -1,6 +1,7 @@
 package com.example.hamza.noteappp.Dao;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -20,19 +21,13 @@ public interface Dao {
 
 
     @Query("SELECT * FROM note_data")
-    List<Note> getAllNotes();
+    LiveData<List<Note>> getAllNotes();
 
     @Query("SELECT * FROM note_data WHERE note_id = :noteId LIMIT 1")
     Note getOneNote(int noteId);
 
-    @Query("SELECT * FROM note_data WHERE note_checked = 1 ORDER BY note_created_at DESC")
-    LiveData<List<Note>> getAllMarkedNotes();
-
-    @Query("SELECT * FROM note_data WHERE note_checked = 0 ORDER BY note_created_at DESC")
-    LiveData<List<Note>> getAllUnMarkedNotes();
-
-    @Query("SELECT * FROM note_data WHERE note_category LIKE :noteCategory ORDER BY note_created_at DESC")
-    LiveData<List<Note>> getAllNotesWithCategory(String noteCategory);
+    @Delete
+    void deleteNote(Note note);
 
     @Query ("DELETE FROM note_data")
     void deleteAllNotes();

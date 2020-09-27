@@ -49,6 +49,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
     public int getItemCount() {
         return arrayList.size();
     }
+
+
     public void setNotes(List<Note> notes) {
         this.arrayList = (ArrayList<Note>) notes;
         notifyDataSetChanged();
@@ -57,13 +59,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
         private TextView titlee;
         private TextView contenntt;
-        private TextView priority ;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
             titlee=itemView.findViewById(R.id.title_text);
             contenntt=itemView.findViewById(R.id.description);
-            priority = itemView.findViewById(R.id.priority);
 
 
 

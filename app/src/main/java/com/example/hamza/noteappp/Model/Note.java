@@ -8,48 +8,29 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Note_data")
 public class Note {
 
-    @PrimaryKey (autoGenerate = true)
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "note_id")
-    private int id ;
-
-
+    private int id;
 
     @ColumnInfo(name = "note_title")
-    String title ;
+    String title;
 
     @ColumnInfo(name = "note_content")
-    String content ;
+    String content;
 
-    @ColumnInfo(name ="note_Checked")
-    private boolean noteChecked;
-
-    @ColumnInfo(name = "note_category")
-    private String noteCategory;
-
-    @ColumnInfo(name = "note_created_at")
-    private long createdAt;
 
     public Note() {
     }
 
-    public Note( String title, String content, boolean noteChecked, String noteCategory, long createdAt) {
-        this.title=title;
+    public Note(int id, String title, String content) {
+        this.id = id;
+        this.title = title;
         this.content = content;
-        this.noteChecked = noteChecked;
-        this.noteCategory = noteCategory;
-        this.createdAt = createdAt; }
+    }
 
     public Note(String title, String content) {
         this.title = title;
         this.content = content;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public int getId() {
@@ -60,36 +41,20 @@ public class Note {
         this.id = id;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getContent() {
         return content;
     }
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public boolean isNoteChecked() {
-        return noteChecked;
-    }
-
-    public void setNoteChecked(boolean noteChecked) {
-        this.noteChecked = noteChecked;
-    }
-
-    public String getNoteCategory() {
-        return noteCategory;
-    }
-
-    public void setNoteCategory(String noteCategory) {
-        this.noteCategory = noteCategory;
-    }
-
-    public long getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(long createdAt) {
-        this.createdAt = createdAt;
     }
 }
 

@@ -32,7 +32,9 @@
             android:layout_toStartOf="@id/priority"
             android:ellipsize="end"
             android:maxLines="1"
+            android:textColor="#F80303"
             android:text="Title"
+            android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:layout_alignParentLeft="true"
             android:layout_toLeftOf="@id/priority"
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title_text"
             android:text="Content"
+            android:textColor="#F80303"
             tools:ignore="HardcodedText" />
     </RelativeLayout>
 
