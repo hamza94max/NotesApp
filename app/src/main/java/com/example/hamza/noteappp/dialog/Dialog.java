@@ -38,8 +38,7 @@ public class Dialog extends AppCompatDialogFragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
 
-                        Note note = new Note(title.getText().toString(), content.getText().toString());
-                        noteViewModel.insert(note);
+                        Toast.makeText(getContext(), "gfhfj", Toast.LENGTH_SHORT).show();
 
                     }
                 });
