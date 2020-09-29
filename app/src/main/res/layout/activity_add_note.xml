@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".Activities.AddNote">
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:hint="Title"
+        android:shadowColor="#835B5B"
+        android:inputType="text"
+        tools:ignore="HardcodedText"
+        android:autofillHints="Title" />
+    <EditText
+        android:id="@+id/contentt"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="25dp"
+        android:hint="Content"
+        android:shadowColor="#835B5B"
+        android:autofillHints="Content"
+        android:inputType="textMultiLine"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/add_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:text="Add note"
+        android:shadowColor="#DF4E4E"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="260dp"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>
