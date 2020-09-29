@@ -7,6 +7,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,7 +19,6 @@ import android.widget.Toast;
 import com.example.hamza.noteappp.Adapter.NoteAdapter;
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
-import com.example.hamza.noteappp.dialog.Dialog;
 import com.example.hamza.noteappp.viewmodel.ViewModel;
 
 import java.util.List;
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dialog exampleDialog = new Dialog();
-                exampleDialog.show(getSupportFragmentManager(), "example dialog");
+                Intent intent =new Intent(getApplicationContext(),AddNote.class);
+                startActivity(intent);
             }
         });
 
