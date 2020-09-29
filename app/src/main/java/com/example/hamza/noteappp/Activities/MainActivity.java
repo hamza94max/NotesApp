@@ -25,6 +25,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final int ADD_NOTE_REQUEST = 1;
     private ViewModel noteViewModel;
 
     @Override
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getApplicationContext(),AddNote.class);
-                startActivity(intent);
+                startActivityForResult(intent, ADD_NOTE_REQUEST);
             }
         });
 
@@ -77,4 +78,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
-    }}
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ADD_NOTE_REQUEST && resultCode == RESULT_OK) {
+            String title = data.getStringExtra(AddNote.EXTRA_TITLE);
+            String description = data.getStringExtra(AddNote.EXTRA_DESCRIPTION);
+            Note note = new Note(title, description);
+            noteViewModel.insert(note);
+            Toast.makeText(this, "Note saved", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Note not saved", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+
+
+
+
+
+
+}
