@@ -8,3 +8,8 @@ Simple app to add Dialy Tasks or Notes
 - Room Database
 - View Model 
 - Recycleview
+
+
+**Guide** <br/>
+- [Room database](https://developer.android.com/training/data-storage/room)
+- [View Model](https://developer.android.com/topic/libraries/architecture/viewmodel)
