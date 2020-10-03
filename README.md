@@ -1,6 +1,6 @@
 # To-Do-app-
 
-Simple app to add Dialy Tasks or Notes
+Simple app to add Daily Tasks or Notes
 
 
 ## Android Features 
