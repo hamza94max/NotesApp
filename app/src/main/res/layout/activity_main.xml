@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".Activities.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rec"
+        android:layoutDirection="ltr"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,6 +27,7 @@
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="@id/rec"
         app:layout_constraintTop_toTopOf="parent"
+        android:layoutDirection="ltr"
         app:layout_constraintVertical_bias="0.95"
         tools:ignore="MissingConstraints" />
 
