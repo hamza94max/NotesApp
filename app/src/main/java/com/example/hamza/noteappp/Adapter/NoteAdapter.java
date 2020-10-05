@@ -4,12 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.hamza.noteappp.Interfaces.OnItemClickListener;
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
 
@@ -18,15 +18,11 @@ import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
-    public static OnItemClickListener listner;
+    private static OnItemClickListener listener;
 
-    private ArrayList<Note> arrayList = new ArrayList<>();
+    public static ArrayList<Note> arrayList = new ArrayList<>();
 
     public NoteAdapter() {
-    }
-
-    public void setListner(OnItemClickListener listner) {
-        this.listner = listner;
     }
 
 
@@ -76,12 +72,21 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
             titlee=itemView.findViewById(R.id.title_text);
             contenntt=itemView.findViewById(R.id.description);
 
-
-
-
-
-
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(arrayList.get(position));
+                    }
+                }
+            });
         }
+    }
+    public interface OnItemClickListener {
+        void onItemClick(Note note);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.listener = listener;
     }
 }

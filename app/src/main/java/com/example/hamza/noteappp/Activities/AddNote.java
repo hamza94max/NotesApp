@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.hamza.noteappp.R;
 
 public class AddNote extends AppCompatActivity {
+    public static final String EXTRA_ID = "EXTRA_ID";
     public static final String EXTRA_TITLE ="TITLE";
     public static final String EXTRA_DESCRIPTION ="CONTENT";
 
@@ -33,6 +34,15 @@ public class AddNote extends AppCompatActivity {
 
 
 
+
+        Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_ID)) {
+            setTitle("Edit Note");
+            title.setText(intent.getStringExtra(EXTRA_TITLE));
+            content.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
+        } else {
+            setTitle("Add Note");
+        }
 
 
 

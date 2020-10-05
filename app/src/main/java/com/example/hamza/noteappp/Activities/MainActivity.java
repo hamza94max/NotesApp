@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,15 +20,15 @@ import com.example.hamza.noteappp.Adapter.NoteAdapter;
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.viewmodel.ViewModel;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final int ADD_NOTE_REQUEST = 1;
+    public static final int EDIT_NOTE_REQUEST = 2;
+
     private ViewModel noteViewModel;
-    private ArrayList<Note> mWordList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,7 +75,20 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setNotes(notes);
             }
         });
-    }
+
+        adapter.setOnItemClickListener(new NoteAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Note note) {
+                Intent intent = new Intent(MainActivity.this, AddNote.class);
+                intent.putExtra(AddNote.EXTRA_ID, note.getId());
+                intent.putExtra(AddNote.EXTRA_TITLE, note.getTitle());
+                intent.putExtra(AddNote.EXTRA_DESCRIPTION, note.getContent());
+                startActivityForResult(intent, EDIT_NOTE_REQUEST);
+            }
+        });
+
+        }
+
 
 
     @Override

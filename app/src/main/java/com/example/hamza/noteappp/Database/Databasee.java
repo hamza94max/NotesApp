@@ -3,16 +3,15 @@ package com.example.hamza.noteappp.Database;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.service.voice.VoiceInteractionService;
-
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
 import com.example.hamza.noteappp.Dao.Dao;
 import com.example.hamza.noteappp.Model.Note;
+
+
 
     @Database(entities = Note.class,version = 1 )
     public abstract class Databasee extends RoomDatabase {
@@ -52,9 +51,7 @@ private static RoomDatabase.Callback roomcallback =new RoomDatabase.Callback(){
 
        @Override
        protected Void doInBackground(Void... voids) {
-           dao.insertNote(new Note("Task one","yeeees"));
-           dao.insertNote(new Note("Task 2","yeeees2"));
-           dao.insertNote(new Note("Task 3","yeeees3"));
+           dao.insertNote(new Note("Task one","You can add tasks by click +1 "));
 
            return null;
        }
