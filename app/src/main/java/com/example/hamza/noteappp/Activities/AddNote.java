@@ -19,6 +19,7 @@ public class AddNote extends AppCompatActivity {
     private EditText title;
     private EditText content;
     private Button add;
+    Intent data = new Intent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,15 @@ public class AddNote extends AppCompatActivity {
         title=findViewById(R.id.title);
         content=findViewById(R.id.contentt);
 
+
+
+
+
+
+
+
+
+
         add =findViewById(R.id.add_btn);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +46,7 @@ public class AddNote extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please insert a title and description", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Intent data = new Intent();
+
                 data.putExtra(EXTRA_TITLE, title.getText().toString());
                 data.putExtra(EXTRA_DESCRIPTION, content.getText().toString());
 

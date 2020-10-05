@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.hamza.noteappp.Interfaces.OnItemClickListener;
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
 
@@ -16,11 +18,17 @@ import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
+    public static OnItemClickListener listner;
 
     private ArrayList<Note> arrayList = new ArrayList<>();
 
     public NoteAdapter() {
     }
+
+    public void setListner(OnItemClickListener listner) {
+        this.listner = listner;
+    }
+
 
     public NoteAdapter(ArrayList<Note> models, Context context) {
         this.arrayList = models;
@@ -43,6 +51,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         holder.contenntt.setText(currentNote.getContent());
 
 
+    }
+    public Note getNoteAt(int position) {
+        return arrayList.get(position);
     }
 
     @Override
