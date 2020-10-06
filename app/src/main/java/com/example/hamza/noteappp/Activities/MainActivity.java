@@ -22,6 +22,8 @@ import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.viewmodel.ViewModel;
 import java.util.List;
 
+import at.markushi.ui.CircleButton;
+
 public class MainActivity extends AppCompatActivity {
 
     public static final int ADD_NOTE_REQUEST = 1;
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button plus= findViewById(R.id.plus);
+        CircleButton plus= findViewById(R.id.plus);
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
