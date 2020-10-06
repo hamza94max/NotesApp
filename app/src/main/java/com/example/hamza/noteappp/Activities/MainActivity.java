@@ -119,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
             String description = data.getStringExtra(AddNote.EXTRA_DESCRIPTION);
             Note note = new Note(title, description);
             noteViewModel.insert(note);
-            Toast.makeText(this, "Task saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
         } else if (requestCode==EDIT_NOTE_REQUEST&&resultCode==RESULT_OK){
             int id = data.getIntExtra(AddNote.EXTRA_ID, -1);
             if (id == -1) {
-                Toast.makeText(this, "Taskcan't be updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Task can't be updated , Please click update", Toast.LENGTH_SHORT).show();
                 return;
             }
             String title = data.getStringExtra(AddNote.EXTRA_TITLE);
