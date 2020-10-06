@@ -29,16 +29,40 @@
         android:inputType="textMultiLine"
         tools:ignore="HardcodedText" />
 
+
+    <RelativeLayout
+        android:id="@+id/relativee"
+        android:layoutDirection="ltr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UnusedAttribute">
+
     <Button
         android:id="@+id/add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#fff"
-        android:text="Add note"
-        android:shadowColor="#DF4E4E"
+        android:background="#ACD2E3"
+        android:text="Add Task"
+        android:shadowColor="#ACD2E3"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginLeft="260dp"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="260dp" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/update_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:background="#ACD2E3"
+        android:text="Update"
+        android:textSize="20sp"
+        android:onClick="update_task"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText"
+        android:layout_marginStart="100dp" />
+
+
+    </RelativeLayout>
+    </LinearLayout>
