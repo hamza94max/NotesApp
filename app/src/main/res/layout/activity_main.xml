@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
+    android:background="#fff"
     tools:context=".Activities.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -17,11 +18,14 @@
         app:layout_constraintTop_toTopOf="@id/rec"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <at.markushi.ui.CircleButton
         android:id="@+id/plus"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/plus"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="@drawable/circular"
+        android:src="@drawable/btn"
+        app:cb_pressedRingWidth="7dip"
+        app:cb_color="#2F76AF"
         app:layout_constraintBottom_toBottomOf="@+id/rec"
         app:layout_constraintEnd_toEndOf="@+id/rec"
         app:layout_constraintHorizontal_bias="0.955"
