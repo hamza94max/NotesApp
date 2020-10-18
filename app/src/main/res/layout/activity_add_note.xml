@@ -25,9 +25,9 @@
         android:layout_marginTop="25dp"
         android:hint="Content"
         android:shadowColor="#835B5B"
-        android:autofillHints="Content"
         android:inputType="textMultiLine"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:importantForAutofill="no" />
 
 
     <RelativeLayout
@@ -39,29 +39,29 @@
 
     <Button
         android:id="@+id/add_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:background="#ACD2E3"
-        android:text="Add Task"
+        android:text="@string/add"
         android:shadowColor="#ACD2E3"
         android:textSize="20sp"
+        android:textAllCaps="false"
         android:textStyle="bold"
-        android:layout_marginLeft="260dp"
-        tools:ignore="HardcodedText"
-        android:layout_marginStart="260dp" />
+        android:layout_marginLeft="75dp"
+        android:layout_marginStart="225dp" />
 
-    <Button
-        android:id="@+id/update_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:background="#ACD2E3"
-        android:text="Update"
-        android:textSize="20sp"
-        android:onClick="update_task"
-        android:textStyle="bold"
-        tools:ignore="HardcodedText"
-        android:layout_marginStart="100dp" />
+        <Button
+            android:id="@+id/update_btn"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginLeft="75dp"
+            android:background="#ACD2E3"
+            android:onClick="update_task"
+            android:text="@string/update"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
