@@ -1,4 +1,4 @@
-# To-Do-app
+# NotesApp
 
 Simple app to add Daily Tasks or Notes
 
