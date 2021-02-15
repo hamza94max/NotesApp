@@ -14,7 +14,7 @@ Simple app to add Daily Tasks or Notes
 
 
 
-## Android Features 
+## Topics
 
 - Room Database
 - View Model 
