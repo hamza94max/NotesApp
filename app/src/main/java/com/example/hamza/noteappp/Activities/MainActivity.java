@@ -2,12 +2,15 @@ package com.example.hamza.noteappp.Activities;
 
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -103,9 +106,29 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.deleteAll:
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
 
-                noteViewModel.deleteAllNotes();
-                Toast.makeText(this, "All notes deleted", Toast.LENGTH_SHORT).show();
+                        if (!isFinishing()){
+                            new AlertDialog.Builder(MainActivity.this)
+                                    .setTitle(" Alert")
+                                    .setMessage("Do you really want to delete all notes ?")
+                                    .setCancelable(true)
+                                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            // Whatever...
+
+                                            noteViewModel.deleteAllNotes();
+                                            Toast.makeText(getApplicationContext(), "All notes deleted", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).show();
+                        }
+                    }
+                });
+
+
                 return true;
 
         }
