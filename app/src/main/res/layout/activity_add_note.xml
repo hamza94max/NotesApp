@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="#070101"
         android:padding="20dp"
         tools:context=".Activities.AddNote">
 
@@ -20,7 +21,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="0"
             android:hint="Title"
-            android:shadowColor="#835B5B"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="27sp"
+            android:shadowColor="#ffff"
             android:inputType="text"
             tools:ignore="HardcodedText"
             android:autofillHints="Title" />
@@ -30,12 +34,15 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="22dp"
             android:hint="Content"
-            android:shadowColor="#835B5B"
+            android:textAlignment="textStart"
+            android:textColor="#fff"
+            android:shadowColor="#ffff"
+            android:background="@drawable/editext"
             android:inputType="textMultiLine"
             tools:ignore="HardcodedText"
-            android:importantForAutofill="no" />
+            android:gravity="start" />
 
 
         <RelativeLayout

@@ -4,14 +4,12 @@ package com.example.hamza.noteappp.Activities;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingComponent;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +17,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 import com.example.hamza.noteappp.Adapter.NoteAdapter;
 import com.example.hamza.noteappp.Model.Note;
@@ -28,7 +25,6 @@ import com.example.hamza.noteappp.databinding.ActivityMainBinding;
 import com.example.hamza.noteappp.viewmodel.ViewModel;
 import java.util.List;
 
-import at.markushi.ui.CircleButton;
 
 public class MainActivity extends AppCompatActivity {
 

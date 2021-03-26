@@ -43,9 +43,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 
-    //circular button
-    implementation 'com.github.markushi:circlebutton:1.1'
-
     //noinspection GradleCompatible
     implementation 'com.android.support:recyclerview-v7:25.0.0'
     //noinspection GradleCompatible

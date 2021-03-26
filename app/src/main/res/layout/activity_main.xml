@@ -7,6 +7,7 @@
 
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,14 +35,15 @@
         </GridLayout>
 
 
-        <at.markushi.ui.CircleButton
+        <Button
             android:id="@+id/plus"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/circular"
-            android:src="@drawable/btn"
-            app:cb_pressedRingWidth="7dip"
-            app:cb_color="#2F76AF"
+            android:background="@drawable/shape"
+            android:text="+"
+            android:textColor="#fff"
+            android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/grid"
             app:layout_constraintEnd_toEndOf="@+id/grid"
             app:layout_constraintHorizontal_bias="0.955"

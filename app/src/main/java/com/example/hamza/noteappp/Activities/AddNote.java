@@ -61,9 +61,6 @@ public class AddNote extends AppCompatActivity {
     }
     public void update_task(View view) {
 
-
-
-
         if (binding.title.getText().toString().trim().isEmpty() || binding.contentt.getText().toString().trim().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please insert a title and Content", Toast.LENGTH_SHORT).show();
             return;
