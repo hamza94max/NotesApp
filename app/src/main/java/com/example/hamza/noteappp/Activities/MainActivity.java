@@ -4,6 +4,8 @@ package com.example.hamza.noteappp.Activities;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingComponent;
+import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 import com.example.hamza.noteappp.Adapter.NoteAdapter;
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
+import com.example.hamza.noteappp.databinding.ActivityMainBinding;
 import com.example.hamza.noteappp.viewmodel.ViewModel;
 import java.util.List;
 
@@ -39,8 +42,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CircleButton plus= findViewById(R.id.plus);
-        plus.setOnClickListener(new View.OnClickListener() {
+
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+
+
+        binding.plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getApplicationContext(),AddNote.class);
@@ -49,11 +55,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        RecyclerView recyclerView = findViewById(R.id.rec);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
+
+        binding.rec.setLayoutManager(new LinearLayoutManager(this));
+        binding.rec.setHasFixedSize(true);
         final NoteAdapter adapter = new NoteAdapter();
-        recyclerView.setAdapter(adapter);
+        binding.rec.setAdapter(adapter);
 
 
 
@@ -68,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
                 Toast.makeText(MainActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
             }
-        }).attachToRecyclerView(recyclerView);
+        }).attachToRecyclerView(binding.rec);
 
 
 
@@ -90,10 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(AddNote.EXTRA_DESCRIPTION, note.getContent());
                 startActivityForResult(intent, EDIT_NOTE_REQUEST);
             }
-        });
-
-        }
-
+        }); }
 
 
     @Override
@@ -160,14 +163,4 @@ public class MainActivity extends AppCompatActivity {
         }else {
             Toast.makeText(this, "Task not saved", Toast.LENGTH_SHORT).show();
         }
-    }
-
-
-
-
-
-
-
-
-
-}
+    }}

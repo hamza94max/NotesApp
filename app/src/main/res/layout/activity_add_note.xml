@@ -1,68 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    tools:context=".Activities.AddNote">
-    <EditText
-        android:id="@+id/title"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:hint="Title"
-        android:shadowColor="#835B5B"
-        android:inputType="text"
-        tools:ignore="HardcodedText"
-        android:autofillHints="Title" />
-    <EditText
-        android:id="@+id/contentt"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="25dp"
-        android:hint="Content"
-        android:shadowColor="#835B5B"
-        android:inputType="textMultiLine"
-        tools:ignore="HardcodedText"
-        android:importantForAutofill="no" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:context=".Activities.AddNote">
 
-
-    <RelativeLayout
-        android:id="@+id/relativee"
-        android:layoutDirection="ltr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="UnusedAttribute">
-
-    <Button
-        android:id="@+id/add_btn"
-        android:layout_width="135dp"
-        android:layout_height="wrap_content"
-        android:background="#ACD2E3"
-        android:text="@string/add"
-        android:shadowColor="#ACD2E3"
-        android:textSize="20sp"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:layout_marginLeft="75dp"
-        android:layout_marginStart="225dp" />
-
-        <Button
-            android:id="@+id/update_btn"
-            android:layout_width="125dp"
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginLeft="75dp"
-            android:background="#ACD2E3"
-            android:onClick="update_task"
-            android:text="@string/update"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_weight="0"
+            android:hint="Title"
+            android:shadowColor="#835B5B"
+            android:inputType="text"
+            tools:ignore="HardcodedText"
+            android:autofillHints="Title" />
+
+        <EditText
+            android:id="@+id/contentt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="25dp"
+            android:hint="Content"
+            android:shadowColor="#835B5B"
+            android:inputType="textMultiLine"
+            tools:ignore="HardcodedText"
+            android:importantForAutofill="no" />
 
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/relativee"
+            android:layoutDirection="ltr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UnusedAttribute">
+
+            <Button
+                android:id="@+id/add_btn"
+                android:layout_width="135dp"
+                android:layout_height="wrap_content"
+                android:background="#ACD2E3"
+                android:text="@string/add"
+                android:shadowColor="#ACD2E3"
+                android:textSize="20sp"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:layout_marginLeft="75dp"
+                android:layout_marginStart="225dp" />
+
+            <Button
+                android:id="@+id/update_btn"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="75dp"
+                android:layout_marginLeft="75dp"
+                android:background="#ACD2E3"
+                android:onClick="update_task"
+                android:text="@string/update"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
     </LinearLayout>
+</layout>

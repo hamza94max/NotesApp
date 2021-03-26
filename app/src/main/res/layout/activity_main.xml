@@ -1,51 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layoutDirection="ltr"
-    android:background="#fff"
-    tools:context=".Activities.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <GridLayout
-        android:id="@+id/grid"
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rec"
-            android:layoutDirection="ltr"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/rec"
-            app:layout_constraintStart_toStartOf="parent" />
-
-    </GridLayout>
-
-
-
-
-    <at.markushi.ui.CircleButton
-        android:id="@+id/plus"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:background="@drawable/circular"
-        android:src="@drawable/btn"
-        app:cb_pressedRingWidth="7dip"
-        app:cb_color="#2F76AF"
-        app:layout_constraintBottom_toBottomOf="@+id/grid"
-        app:layout_constraintEnd_toEndOf="@+id/grid"
-        app:layout_constraintHorizontal_bias="0.955"
-        app:layout_constraintStart_toStartOf="@id/grid"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="match_parent"
         android:layoutDirection="ltr"
-        app:layout_constraintVertical_bias="0.95"
-        tools:ignore="MissingConstraints" />
+        android:background="#fff"
+        tools:context=".Activities.MainActivity">
+
+        <GridLayout
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec"
+                android:layoutDirection="ltr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rec"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </GridLayout>
+
+
+        <at.markushi.ui.CircleButton
+            android:id="@+id/plus"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@drawable/circular"
+            android:src="@drawable/btn"
+            app:cb_pressedRingWidth="7dip"
+            app:cb_color="#2F76AF"
+            app:layout_constraintBottom_toBottomOf="@+id/grid"
+            app:layout_constraintEnd_toEndOf="@+id/grid"
+            app:layout_constraintHorizontal_bias="0.955"
+            app:layout_constraintStart_toStartOf="@id/grid"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layoutDirection="ltr"
+            app:layout_constraintVertical_bias="0.95"
+            tools:ignore="MissingConstraints" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
