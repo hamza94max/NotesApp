@@ -1,16 +1,13 @@
 package com.example.hamza.noteappp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingComponent;
 import androidx.databinding.DataBindingUtil;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 
 import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.databinding.ActivitySpalshScreenBinding;
@@ -38,6 +35,6 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1000);
+        }, 100);
     }
 }

@@ -1,21 +1,16 @@
 package com.example.hamza.noteappp.Adapter;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -26,13 +21,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
     public static ArrayList<Note> arrayList = new ArrayList<>();
 
-    public NoteAdapter() {
-    }
+    public NoteAdapter(){}
 
-
-    public NoteAdapter(ArrayList<Note> models, Context context) {
-        this.arrayList = models;
-    }
 
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,7 +38,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         Note currentNote = arrayList.get(position);
 
         holder.titlee.setText(currentNote.getTitle());
-        holder.cardView.setBackgroundColor(randomColor());
+        holder.cardView.setCardBackgroundColor(Color.YELLOW);
 
 
     }
@@ -63,13 +53,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
 
     public void setNotes(List<Note> notes) {
-        this.arrayList = (ArrayList<Note>) notes;
+        arrayList = (ArrayList<Note>) notes;
         notifyDataSetChanged();
     }
     static class Viewholder extends RecyclerView.ViewHolder {
 
-        private TextView titlee;
-        private RelativeLayout cardView;
+        private final TextView titlee;
+        private final CardView cardView;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
@@ -90,14 +80,24 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         void onItemClick(Note note);
     }
     public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
+        NoteAdapter.listener = listener;
     }
 
     public int randomColor (){
 
+
+      List<Integer> colors=new ArrayList<>();
+        colors.add(R.color.d);
+
+         /*
+        colors.add(R.color.b);
+        colors.add(R.color.a);
+        colors.add(R.color.c);
+        colors.add(R.color.f);
+        */
+
         Random rand = new Random();
-        int colors[]={Color.YELLOW};
-        int Color=rand.nextInt(colors.length);
-        return Color; }
+        int Color=rand.nextInt(colors.size());
+        return colors.get(Color); }
 }
 

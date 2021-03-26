@@ -22,12 +22,6 @@ import androidx.room.PrimaryKey;
     public Note() {
     }
 
-    public Note(int id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
-
     public Note(String title, String content) {
         this.title = title;
         this.content = content;
