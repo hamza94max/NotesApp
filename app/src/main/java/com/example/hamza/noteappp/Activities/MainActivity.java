@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -52,10 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        binding.rec.setLayoutManager(new LinearLayoutManager(this));
         binding.rec.setHasFixedSize(true);
         final NoteAdapter adapter = new NoteAdapter();
         binding.rec.setAdapter(adapter);
+        binding.rec.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+
 
 
 

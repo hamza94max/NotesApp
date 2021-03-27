@@ -1,16 +1,21 @@
 package com.example.hamza.noteappp.Adapter;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -34,11 +39,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NoteAdapter.Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
         Note currentNote = arrayList.get(position);
 
         holder.titlee.setText(currentNote.getTitle());
         holder.cardView.setCardBackgroundColor(Color.YELLOW);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            holder.date.setText(getdate());
+        }
 
 
     }
@@ -58,7 +66,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
     }
     static class Viewholder extends RecyclerView.ViewHolder {
 
-        private final TextView titlee;
+        private  TextView titlee, date;
         private final CardView cardView;
 
         public Viewholder(@NonNull View itemView) {
@@ -74,6 +82,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
                     }
                 }
             });
+
+            date=itemView.findViewById(R.id.date);
+
+
+
         }
     }
     public interface OnItemClickListener {
@@ -82,6 +95,25 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
     public void setOnItemClickListener(OnItemClickListener listener) {
         NoteAdapter.listener = listener;
     }
+
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String getdate(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
+        LocalDateTime now = LocalDateTime.now();
+        String date =dtf.format(now);
+        return date;
+    }
+
+
+
+
+
+
+
+
 
     public int randomColor (){
 
