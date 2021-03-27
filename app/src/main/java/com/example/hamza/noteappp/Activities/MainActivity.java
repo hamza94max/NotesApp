@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                                             // Whatever...
 
                                             noteViewModel.deleteAllNotes();
-                                            Toast.makeText(getApplicationContext(), "All notes deleted", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), "All notes are deleted", Toast.LENGTH_SHORT).show();
                                         }
                                     }).show();
                         }

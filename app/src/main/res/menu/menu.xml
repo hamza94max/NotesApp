@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/deleteAll"
-        android:title="Delete all tasks"
+        android:title="Delete all notes"
         app:showAsAction="ifRoom"
         tools:ignore="HardcodedText" />
 

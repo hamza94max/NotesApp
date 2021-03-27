@@ -43,6 +43,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         Note currentNote = arrayList.get(position);
 
         holder.titlee.setText(currentNote.getTitle());
+
+
         holder.cardView.setCardBackgroundColor(Color.YELLOW);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             holder.date.setText(getdate());
@@ -119,9 +121,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
 
       List<Integer> colors=new ArrayList<>();
-        colors.add(R.color.d);
+      colors.add(Color.YELLOW);
+      colors.add(Color.BLUE);
+
 
          /*
+        colors.add(R.color.d);
         colors.add(R.color.b);
         colors.add(R.color.a);
         colors.add(R.color.c);
