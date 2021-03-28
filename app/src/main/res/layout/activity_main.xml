@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -11,12 +12,42 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
+        android:background="#000000"
         android:layoutDirection="ltr"
-        android:background="#fff"
         tools:context=".Activities.MainActivity">
+
+        <RelativeLayout
+            android:id="@+id/re"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/grid"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:text="Notes"
+                android:textColor="#fff"
+                android:textSize="40sp" />
+
+
+
+
+        </RelativeLayout>
+
+
+
 
         <GridLayout
             android:id="@+id/grid"
+            android:layout_marginTop="80dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -28,7 +59,7 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:background="#ffff"
+                android:background="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/rec"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -45,14 +76,18 @@
             android:textColor="#fff"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/grid"
-            app:layout_constraintEnd_toEndOf="@+id/grid"
-            app:layout_constraintHorizontal_bias="0.955"
-            app:layout_constraintStart_toStartOf="@id/grid"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layoutDirection="ltr"
-            app:layout_constraintVertical_bias="0.95"
-            tools:ignore="MissingConstraints" />
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/rec"
+            tools:ignore="NotSibling"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="50dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

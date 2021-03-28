@@ -5,7 +5,6 @@ import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -13,7 +12,6 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -68,7 +66,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
     }
     static class Viewholder extends RecyclerView.ViewHolder {
 
-        private  TextView titlee, date;
+        private final TextView titlee;
+        private final TextView date;
         private final CardView cardView;
 
         public Viewholder(@NonNull View itemView) {
@@ -108,13 +107,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         String date =dtf.format(now);
         return date;
     }
-
-
-
-
-
-
-
 
 
     public int randomColor (){

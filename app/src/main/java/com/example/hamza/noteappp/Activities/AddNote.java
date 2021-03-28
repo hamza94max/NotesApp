@@ -10,6 +10,7 @@ import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.databinding.ActivityAddNoteBinding;
 
 public class AddNote extends AppCompatActivity {
+
     public static final String EXTRA_ID = "EXTRA_ID";
     public static final String EXTRA_TITLE ="TITLE";
     public static final String EXTRA_DESCRIPTION ="CONTENT";
@@ -27,14 +28,6 @@ public class AddNote extends AppCompatActivity {
 
 
 
-        Intent intent = getIntent();
-        if (intent.hasExtra(EXTRA_ID)) {
-            setTitle("Edit Note");
-            binding.title.setText(intent.getStringExtra(EXTRA_TITLE));
-            binding.contentt.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
-        } else {
-            setTitle("Add Note");
-        }
 
         binding.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,21 +38,20 @@ public class AddNote extends AppCompatActivity {
                 }
 
                 data.putExtra(EXTRA_TITLE, binding.title.getText().toString());
-                data.putExtra(EXTRA_DESCRIPTION, binding.contentt.getText().toString());
 
                 setResult(RESULT_OK, data);
                 Toast.makeText(getApplicationContext(), "Task saved", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
-
     }
+
     public void update_task(View view) {
 
         if (binding.title.getText().toString().trim().isEmpty() || binding.contentt.getText().toString().trim().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please insert a title and Content", Toast.LENGTH_SHORT).show();
-            return;
-        }
+            return; }
+
         int id = getIntent().getIntExtra(EXTRA_ID, -1);
         if (id != -1) {
             data.putExtra(EXTRA_ID, id);
