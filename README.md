@@ -11,7 +11,7 @@ Simple app to add Daily Tasks or Notes
 <img src = "https://user-images.githubusercontent.com/54688005/112855110-cf350600-90ae-11eb-9c27-4af1c309d66c.PNG" width =37%>
   <img width ="10%"/> 
 </div>
-
+<br/><br/>
 
 <div>
 <img src = "https://user-images.githubusercontent.com/54688005/112855120-d0663300-90ae-11eb-9baa-426636dbe8c5.PNG" width =37%>
