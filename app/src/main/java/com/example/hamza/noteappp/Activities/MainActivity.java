@@ -9,10 +9,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -27,7 +25,6 @@ import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.databinding.ActivityMainBinding;
 import com.example.hamza.noteappp.viewmodel.ViewModel;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -162,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
             Note note = new Note(title, description,date);
             noteViewModel.insert(note);
             Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
+
         } else if (requestCode==EDIT_NOTE_REQUEST&&resultCode==RESULT_OK){
             int id = data.getIntExtra(AddNote.EXTRA_ID, -1);
             if (id == -1) {

@@ -26,7 +26,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
         @SuppressLint("ResourceType") Animation animation = AnimationUtils.loadAnimation(this, anim);
-        binding.img.startAnimation(animation);
+        binding.splash.startAnimation(animation);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -35,6 +35,6 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 100);
+        }, 1220);
     }
 }

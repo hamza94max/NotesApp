@@ -10,15 +10,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#000000"
         tools:context=".Activities.SplashScreen">
 
         <ImageView
-            android:id="@+id/img"
+            android:id="@+id/splash"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:scaleType="center"
-            android:src="@drawable/tu"
+            android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

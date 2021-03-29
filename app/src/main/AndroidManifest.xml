@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/imgsplash"
+        android:icon="@drawable/loggo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/imgsplash"
+        android:roundIcon="@drawable/loggo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activities.SplashScreen">
