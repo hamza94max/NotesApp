@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Toast;
 import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.databinding.ActivityAddNoteBinding;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -32,7 +31,12 @@ public class AddNote extends AppCompatActivity {
          binding= DataBindingUtil.setContentView(this,R.layout.activity_add_note);
 
 
+        Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_ID)) {
 
+            binding.title.setText(intent.getStringExtra(EXTRA_TITLE));
+            binding.contentt.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
+        }
 
 
         binding.addBtn.setOnClickListener(new View.OnClickListener() {
@@ -45,10 +49,11 @@ public class AddNote extends AppCompatActivity {
                 }
 
                 data.putExtra(EXTRA_TITLE, binding.title.getText().toString());
+                data.putExtra(EXTRA_DESCRIPTION,binding.contentt.getText().toString());
                 data.putExtra(Extra_DATE, getdate());
 
                 setResult(RESULT_OK, data);
-                Toast.makeText(getApplicationContext(), "Task saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Note saved", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

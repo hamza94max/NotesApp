@@ -7,13 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -41,8 +38,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         Note currentNote = arrayList.get(position);
 
         holder.titlee.setText(currentNote.getTitle());
-
-
         holder.cardView.setCardBackgroundColor(Color.YELLOW);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             holder.date.setText(currentNote.getDate());
@@ -111,9 +106,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
     public int randomColor (){
 
 
-      List<Integer> colors=new ArrayList<>();
-      colors.add(Color.YELLOW);
-      colors.add(Color.BLUE);
+        List<Integer> colors=new ArrayList<>();
+        colors.add(Color.YELLOW);
+        colors.add(Color.BLUE);
 
 
          /*
@@ -128,4 +123,40 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         int Color=rand.nextInt(colors.size());
         return colors.get(Color); }
 }
+
+
+
+/*
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String getdate(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
+        LocalDateTime now = LocalDateTime.now();
+        String date =dtf.format(now);
+        return date;
+    }
+
+
+    public int randomColor (){
+
+
+      List<Integer> colors=new ArrayList<>();
+      colors.add(Color.YELLOW);
+      colors.add(Color.BLUE);
+
+
+
+        colors.add(R.color.d);
+        colors.add(R.color.b);
+        colors.add(R.color.a);
+        colors.add(R.color.c);
+        colors.add(R.color.f);
+
+
+        Random rand = new Random();
+        int Color=rand.nextInt(colors.size());
+        return colors.get(Color); }
+ */
+
+
+
 

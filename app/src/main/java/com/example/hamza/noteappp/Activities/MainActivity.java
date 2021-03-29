@@ -158,12 +158,12 @@ public class MainActivity extends AppCompatActivity {
             String date =getdate();
             Note note = new Note(title, description,date);
             noteViewModel.insert(note);
-            Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Note added", Toast.LENGTH_SHORT).show();
 
         } else if (requestCode==EDIT_NOTE_REQUEST&&resultCode==RESULT_OK){
             int id = data.getIntExtra(AddNote.EXTRA_ID, -1);
             if (id == -1) {
-                Toast.makeText(this, "Task can't be updated , Please click update", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Note can't be updated , Please click update", Toast.LENGTH_SHORT).show();
                 return;
             }
             String title = data.getStringExtra(AddNote.EXTRA_TITLE);
@@ -171,8 +171,8 @@ public class MainActivity extends AppCompatActivity {
             Note note = new Note(title, description,getdate());
             note.setId(id);
             noteViewModel.update(note);
-            Toast.makeText(this, "Task updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Note updated", Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(this, "Task not saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Note not saved", Toast.LENGTH_SHORT).show();
         }
     }}
