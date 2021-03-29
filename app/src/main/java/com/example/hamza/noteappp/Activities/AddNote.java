@@ -1,18 +1,24 @@
 package com.example.hamza.noteappp.Activities;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.databinding.ActivityAddNoteBinding;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class AddNote extends AppCompatActivity {
 
     public static final String EXTRA_ID = "EXTRA_ID";
     public static final String EXTRA_TITLE ="TITLE";
+    private static final String Extra_DATE ="DATE";
     public static final String EXTRA_DESCRIPTION ="CONTENT";
 
     Intent data = new Intent();
@@ -30,6 +36,7 @@ public class AddNote extends AppCompatActivity {
 
 
         binding.addBtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 if (binding.title.getText().toString().trim().isEmpty() || binding.contentt.getText().toString().trim().isEmpty()) {
@@ -38,6 +45,7 @@ public class AddNote extends AppCompatActivity {
                 }
 
                 data.putExtra(EXTRA_TITLE, binding.title.getText().toString());
+                data.putExtra(Extra_DATE, getdate());
 
                 setResult(RESULT_OK, data);
                 Toast.makeText(getApplicationContext(), "Task saved", Toast.LENGTH_SHORT).show();
@@ -45,6 +53,13 @@ public class AddNote extends AppCompatActivity {
             }
         });
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String getdate(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
+        LocalDateTime now = LocalDateTime.now();
+        String date =dtf.format(now);
+        return date;}
 
     public void update_task(View view) {
 

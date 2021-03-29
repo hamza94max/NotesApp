@@ -2,6 +2,7 @@ package com.example.hamza.noteappp.Activities;
 
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,6 +27,9 @@ import com.example.hamza.noteappp.Model.Note;
 import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.databinding.ActivityMainBinding;
 import com.example.hamza.noteappp.viewmodel.ViewModel;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -138,13 +143,23 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private String getdate(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
+        LocalDateTime now = LocalDateTime.now();
+        String date =dtf.format(now);
+        return date;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ADD_NOTE_REQUEST && resultCode == RESULT_OK) {
             String title = data.getStringExtra(AddNote.EXTRA_TITLE);
             String description = data.getStringExtra(AddNote.EXTRA_DESCRIPTION);
-            Note note = new Note(title, description);
+            String date =getdate();
+            Note note = new Note(title, description,date);
             noteViewModel.insert(note);
             Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
         } else if (requestCode==EDIT_NOTE_REQUEST&&resultCode==RESULT_OK){
@@ -155,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             }
             String title = data.getStringExtra(AddNote.EXTRA_TITLE);
             String description = data.getStringExtra(AddNote.EXTRA_DESCRIPTION);
-            Note note = new Note(title, description);
+            Note note = new Note(title, description,getdate());
             note.setId(id);
             noteViewModel.update(note);
             Toast.makeText(this, "Task updated", Toast.LENGTH_SHORT).show();

@@ -51,7 +51,7 @@ private static RoomDatabase.Callback roomcallback =new RoomDatabase.Callback(){
 
        @Override
        protected Void doInBackground(Void... voids) {
-           dao.insertNote(new Note("Task one","You can add tasks by click +1  "+"\n"+"swipe to delete task"));
+           dao.insertNote(new Note("Task one","You can add tasks by click +1  "+"\n"+"swipe to delete task","date"));
 
            return null;
        }

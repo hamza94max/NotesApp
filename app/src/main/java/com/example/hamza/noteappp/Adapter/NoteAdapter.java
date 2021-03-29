@@ -45,11 +45,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
         holder.cardView.setCardBackgroundColor(Color.YELLOW);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            holder.date.setText(getdate());
-        }
+            holder.date.setText(currentNote.getDate());
+        }}
 
-
-    }
     public Note getNoteAt(int position) {
         return arrayList.get(position);
     }
@@ -74,6 +72,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
             super(itemView);
             cardView =itemView.findViewById(R.id.card);
             titlee=itemView.findViewById(R.id.title_text);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -99,7 +98,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
 
 
-
+/*
     @RequiresApi(api = Build.VERSION_CODES.O)
     private String getdate(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
@@ -107,7 +106,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         String date =dtf.format(now);
         return date;
     }
-
+*/
 
     public int randomColor (){
 

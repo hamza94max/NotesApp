@@ -18,14 +18,16 @@ import androidx.room.PrimaryKey;
     @ColumnInfo(name = "note_content")
     String content;
 
+    @ColumnInfo(name = "note_date")
+    String date;
 
-    public Note() {
-    }
 
-    public Note(String title, String content) {
+    public Note() {}
+
+    public Note(String title, String content,String date) {
         this.title = title;
         this.content = content;
-    }
+        this.date=date;}
 
     public int getId() {
         return id;
@@ -50,7 +52,14 @@ import androidx.room.PrimaryKey;
     public void setContent(String content) {
         this.content = content;
     }
-}
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
+        }}
 
 
 
