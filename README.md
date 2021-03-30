@@ -5,13 +5,21 @@ Simple app to add Daily Tasks or Notes
 
 ## Screenshots 
 <div>
-<img src = "https://user-images.githubusercontent.com/54688005/96372725-83c61580-1168-11eb-9df7-88149da98b3a.png" width =37%>
+<img src = "https://user-images.githubusercontent.com/54688005/112855129-d22ff680-90ae-11eb-9e29-2e86f39b165f.jpg" width =37%>
   <img width ="10%"/> 
 
-<img src = "https://user-images.githubusercontent.com/54688005/96372726-86c10600-1168-11eb-8a5b-caaa5a82f2b4.png" width =37%>
+<img src = "https://user-images.githubusercontent.com/54688005/112855110-cf350600-90ae-11eb-9c27-4af1c309d66c.PNG" width =37%>
   <img width ="10%"/> 
 </div>
+<br/><br/>
 
+<div>
+<img src = "https://user-images.githubusercontent.com/54688005/112855120-d0663300-90ae-11eb-9baa-426636dbe8c5.PNG" width =37%>
+  <img width ="10%"/> 
+
+<img src = "https://user-images.githubusercontent.com/54688005/112855123-d0fec980-90ae-11eb-8aad-1021a1f77c78.PNG" width =37%>
+  <img width ="10%"/> 
+</div>
 
 
 ## Topics
