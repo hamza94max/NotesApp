@@ -13,7 +13,7 @@ import com.example.hamza.noteappp.databinding.ActivityAddNoteBinding;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class AddNote extends AppCompatActivity {
+public class AddNoteActivity extends AppCompatActivity {
 
     public static final String EXTRA_ID = "EXTRA_ID";
     public static final String EXTRA_TITLE ="TITLE";

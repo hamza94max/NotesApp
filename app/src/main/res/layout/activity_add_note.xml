@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:background="#070101"
         android:padding="20dp"
-        tools:context=".Activities.AddNote">
+        tools:context=".Activities.AddNoteActivity">
 
         <EditText
             android:id="@+id/title"
