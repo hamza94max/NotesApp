@@ -22,7 +22,7 @@ import com.example.hamza.noteappp.Model.Note;
 
     public static synchronized Databasee getInstance(Context context){
 
-        if (instance==null){
+        if (instance == null){
             instance= Room.databaseBuilder(context.getApplicationContext()
                     , Databasee.class,"Note_database")
                     .fallbackToDestructiveMigration()
@@ -47,7 +47,7 @@ private static RoomDatabase.Callback roomcallback =new RoomDatabase.Callback(){
        private Dao dao;
 
        public PopulateDbAsyncTask(Databasee database) {
-        dao=database.noteDao();}
+        dao = database.noteDao();}
 
        @Override
        protected Void doInBackground(Void... voids) {

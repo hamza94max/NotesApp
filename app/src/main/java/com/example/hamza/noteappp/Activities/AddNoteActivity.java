@@ -16,8 +16,8 @@ import java.time.format.DateTimeFormatter;
 public class AddNoteActivity extends AppCompatActivity {
 
     public static final String EXTRA_ID = "EXTRA_ID";
-    public static final String EXTRA_TITLE ="TITLE";
-    private static final String Extra_DATE ="DATE";
+    public static final String EXTRA_TITLE = "TITLE";
+    private static final String Extra_DATE = "DATE";
     public static final String EXTRA_DESCRIPTION ="CONTENT";
 
     Intent data = new Intent();
@@ -63,8 +63,8 @@ public class AddNoteActivity extends AppCompatActivity {
     private String getdate(){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
         LocalDateTime now = LocalDateTime.now();
-        String date =dtf.format(now);
-        return date;}
+        String date = dtf.format(now);
+        return date; }
 
     public void update_task(View view) {
 

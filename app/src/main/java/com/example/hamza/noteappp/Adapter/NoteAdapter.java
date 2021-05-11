@@ -65,8 +65,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            cardView =itemView.findViewById(R.id.card);
-            titlee=itemView.findViewById(R.id.title_text);
+            cardView = itemView.findViewById(R.id.card);
+            titlee = itemView.findViewById(R.id.title_text);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,7 +78,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
                 }
             });
 
-            date=itemView.findViewById(R.id.date);
+            date = itemView.findViewById(R.id.date);
 
 
 
@@ -91,17 +91,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Viewholder> {
         NoteAdapter.listener = listener;
     }
 
-
-
-/*
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private String getdate(){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
-        LocalDateTime now = LocalDateTime.now();
-        String date =dtf.format(now);
-        return date;
-    }
-*/
 
     public int randomColor (){
 
