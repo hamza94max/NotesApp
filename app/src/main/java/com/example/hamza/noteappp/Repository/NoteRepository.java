@@ -13,42 +13,39 @@ import java.util.List;
 
 public class NoteRepository {
 
-    private Dao dao;
-    private LiveData<List<Note>> allnotes;
+    private final Dao dao;
+    private final LiveData<List<Note>> allnotes;
 
 
     public NoteRepository (Application application){
         Databasee database = Databasee.getInstance(application);
         dao = database.noteDao();
         allnotes = dao.getAllNotes();
-
     }
 
     public void insert(Note note){
         new InsertNoteAsyncTask(dao).execute(note);
-
     }
+
     public void update(Note note){
         new UpdateNoteAsyncTask(dao).execute(note);
     }
+
     public void delete(Note note){
         new DeleteNoteAsyncTask(dao).execute(note);
-
     }
+
     public void deleteAllNotes(){
         new DeleteAllNoteAsyncTask(dao).execute();
-
     }
+
     public LiveData<List<Note>>getAllnotes(){
         return allnotes;
     }
 
-
-
     private static class InsertNoteAsyncTask extends AsyncTask <Note,Void ,Void> {
 
         private Dao dao ;
-
         private InsertNoteAsyncTask(Dao dao){
             this.dao=dao;
         }
@@ -62,8 +59,7 @@ public class NoteRepository {
 
     private static class UpdateNoteAsyncTask extends AsyncTask <Note,Void ,Void> {
 
-        private Dao dao ;
-
+        private final Dao dao ;
         private UpdateNoteAsyncTask(Dao dao){
             this.dao=dao;
         }
@@ -74,10 +70,10 @@ public class NoteRepository {
             return null;
         }
     }
+
     private static class DeleteNoteAsyncTask extends AsyncTask <Note,Void ,Void> {
 
         private Dao dao ;
-
         private DeleteNoteAsyncTask(Dao dao){
             this.dao=dao;
         }
@@ -92,7 +88,6 @@ public class NoteRepository {
     private static class DeleteAllNoteAsyncTask extends AsyncTask <Void,Void ,Void> {
 
         private Dao dao ;
-
         private DeleteAllNoteAsyncTask(Dao dao){
             this.dao=dao;
         }
@@ -103,11 +98,6 @@ public class NoteRepository {
             return null;
         }
     }
-
-
-
-
-
 }
 
 

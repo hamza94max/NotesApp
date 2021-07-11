@@ -11,8 +11,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.hamza.noteappp.Dao.Dao;
 import com.example.hamza.noteappp.Model.Note;
 
-
-
     @Database(entities = Note.class,version = 1 )
     public abstract class Databasee extends RoomDatabase {
 
@@ -32,20 +30,18 @@ import com.example.hamza.noteappp.Model.Note;
         }
         return instance; }
 
+    private static RoomDatabase.Callback roomcallback =new RoomDatabase.Callback(){
 
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            new PopulateDbAsyncTask(instance).execute();
+        }
+    };
 
-private static RoomDatabase.Callback roomcallback =new RoomDatabase.Callback(){
-
-    @Override
-    public void onCreate(@NonNull SupportSQLiteDatabase db) {
-        super.onCreate(db);
-        new PopulateDbAsyncTask(instance).execute();
-    }
-};
    private static class PopulateDbAsyncTask extends AsyncTask<Void ,Void ,Void>{
 
        private Dao dao;
-
        public PopulateDbAsyncTask(Databasee database) {
         dao = database.noteDao();}
 

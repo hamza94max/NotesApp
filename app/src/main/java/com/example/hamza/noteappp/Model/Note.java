@@ -21,7 +21,6 @@ import androidx.room.PrimaryKey;
     @ColumnInfo(name = "note_date")
     String date;
 
-
     public Note() {}
 
     public Note(String title, String content,String date) {
@@ -53,11 +52,11 @@ import androidx.room.PrimaryKey;
         this.content = content;
     }
 
-        public String getDate() {
+    public String getDate() {
             return date;
         }
 
-        public void setDate(String date) {
+    public void setDate(String date) {
             this.date = date;
         }}
 

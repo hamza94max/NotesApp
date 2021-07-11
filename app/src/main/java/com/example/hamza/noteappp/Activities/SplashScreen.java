@@ -1,7 +1,5 @@
 package com.example.hamza.noteappp.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +7,8 @@ import android.os.Handler;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import com.example.hamza.noteappp.R;
 import com.example.hamza.noteappp.databinding.ActivitySpalshScreenBinding;
 
@@ -24,7 +24,6 @@ public class SplashScreen extends AppCompatActivity {
         ActivitySpalshScreenBinding binding  = DataBindingUtil.setContentView(this,R.layout.activity_spalsh_screen);
 
 
-
         @SuppressLint("ResourceType") Animation animation = AnimationUtils.loadAnimation(this, anim);
         binding.splash.startAnimation(animation);
         Handler handler = new Handler();
@@ -35,6 +34,6 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1220);
+        }, 1250);
     }
 }

@@ -40,14 +40,14 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewModel noteViewModel;
 
+    String title,description,date ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-
 
         binding.plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,9 +57,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-        binding.rec.setHasFixedSize(true);
         final NoteAdapter adapter = new NoteAdapter();
         binding.rec.setAdapter(adapter);
         binding.rec.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL));
@@ -79,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(binding.rec);
-
-
 
         noteViewModel = ViewModelProviders.of(this).get(ViewModel.class);
         noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
@@ -102,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }); }
 
-
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
             MenuInflater menuInflater = getMenuInflater();
             menuInflater.inflate(R.menu.menu, menu);
             return true;
         }
+
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -134,48 +129,50 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
-                return true;
-
+            return true;
         }
-
         return true;
     }
 
-        @RequiresApi(api = Build.VERSION_CODES.O)
-        private String getdate(){
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
-            LocalDateTime now = LocalDateTime.now();
-            String date =dtf.format(now);
-            return date;
-        }
+
 
         @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             if (requestCode == ADD_NOTE_REQUEST && resultCode == RESULT_OK) {
-                String title = data.getStringExtra(AddNoteActivity.EXTRA_TITLE);
-                String description = data.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION);
-                String date = getdate();
+                getdata(data);
                 Note note = new Note(title, description,date);
                 noteViewModel.insert(note);
                 Toast.makeText(this, "Note added", Toast.LENGTH_SHORT).show();
 
-            } else if (requestCode==EDIT_NOTE_REQUEST&&resultCode==RESULT_OK){
+            }else if (requestCode == EDIT_NOTE_REQUEST && resultCode == RESULT_OK){
                 int id = data.getIntExtra(AddNoteActivity.EXTRA_ID, -1);
                 if (id == -1) {
                     Toast.makeText(this, "Note can't be updated , Please click update", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                String title = data.getStringExtra(AddNoteActivity.EXTRA_TITLE);
-                String description = data.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION);
-                Note note = new Note(title, description,getdate());
+                getdata(data);
+                Note note = new Note(title, description, date);
                 note.setId(id);
                 noteViewModel.update(note);
                 Toast.makeText(this, "Note updated", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Note not saved", Toast.LENGTH_SHORT).show();
             }
-        }}
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        private void getdata(Intent data){
+            title = data.getStringExtra(AddNoteActivity.EXTRA_TITLE);
+            description = data.getStringExtra(AddNoteActivity.EXTRA_DESCRIPTION);
+            date = getdate();
+        }
+
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        private String getdate(){
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd ");
+            LocalDateTime now = LocalDateTime.now();
+            return dtf.format(now);
+        }
+}
